@@ -31,10 +31,10 @@ export function TenantShell({ tenant, children }: Props) {
     >
       <header className="relative z-20 flex items-center justify-between gap-6 px-6 py-5 md:px-10">
         <Link href={base} className="group min-w-0">
-          <p className="font-[family-name:var(--font-display)] text-xl tracking-tight text-[var(--t-fg)] md:text-2xl">
+          <p className="font-[family-name:var(--font-display)] text-xl leading-snug tracking-tight text-[var(--t-fg)] md:text-2xl">
             {tenant.builderName}
           </p>
-          <p className="truncate text-xs uppercase tracking-[0.22em] text-[var(--t-gold)]">
+          <p className="mt-1 truncate text-xs uppercase leading-normal tracking-[0.22em] text-[var(--t-gold)]">
             {tenant.communityName}
           </p>
         </Link>

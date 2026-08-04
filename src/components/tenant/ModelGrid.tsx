@@ -12,10 +12,10 @@ export function ModelGrid({ tenant }: Props) {
   return (
     <section className="px-6 py-16 md:px-10 md:py-20">
       <div className="mb-10 max-w-2xl">
-        <h2 className="font-[family-name:var(--font-display)] text-3xl tracking-tight md:text-4xl">
+        <h2 className="font-[family-name:var(--font-display)] text-3xl leading-snug tracking-tight md:text-4xl">
           Models
         </h2>
-        <p className="mt-3 text-[var(--t-muted)]">{tenant.productSummary}</p>
+        <p className="mt-4 text-[var(--t-muted)] leading-relaxed">{tenant.productSummary}</p>
       </div>
 
       <div className="grid gap-8 md:grid-cols-2">
@@ -28,7 +28,7 @@ export function ModelGrid({ tenant }: Props) {
               className="border-t border-white/15 pt-6"
             >
               <div className="flex items-baseline justify-between gap-4">
-                <h3 className="font-[family-name:var(--font-display)] text-2xl text-[var(--t-fg)]">
+                <h3 className="font-[family-name:var(--font-display)] text-2xl leading-snug text-[var(--t-fg)]">
                   {rep.name}
                 </h3>
                 <span className="text-xs uppercase tracking-[0.18em] text-[var(--t-gold)]">

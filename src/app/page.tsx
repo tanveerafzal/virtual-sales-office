@@ -5,10 +5,10 @@ export default function Home() {
   const tenants = listTenants();
 
   return (
-    <main className="relative flex flex-1 flex-col overflow-hidden bg-[#0e1518] text-[#f2efe8]">
+    <main className="relative flex flex-1 flex-col bg-[#0e1518] text-[#f2efe8]">
       <div
         aria-hidden
-        className="pointer-events-none absolute inset-0 opacity-50"
+        className="pointer-events-none absolute inset-0 overflow-hidden opacity-50"
         style={{
           background:
             "radial-gradient(ellipse 80% 50% at 60% 0%, #4a737e 0%, transparent 55%), linear-gradient(180deg, #0e1518 0%, #162024 100%)",
@@ -18,10 +18,10 @@ export default function Home() {
         <p className="text-xs uppercase tracking-[0.28em] text-[#c5a46a]">
           Virtual Sales Office
         </p>
-        <h1 className="mt-4 max-w-2xl font-[family-name:var(--font-display)] text-[clamp(2.5rem,7vw,4.5rem)] leading-[0.98] tracking-tight">
+        <h1 className="mt-5 max-w-2xl font-[family-name:var(--font-display)] text-[clamp(2.5rem,7vw,4.5rem)] leading-[1.15] tracking-tight">
           Configurable sales galleries for homebuilders
         </h1>
-        <p className="mt-5 max-w-xl text-lg text-[#9aadaf]">
+        <p className="mt-6 max-w-xl text-lg leading-relaxed text-[#9aadaf]">
           Multi-tenant product shell. First community: Smart Castle Homes · Cedar
           Hedge. 3D exteriors and interiors are delivered by your design team as
           GLBs.

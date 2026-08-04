@@ -51,33 +51,36 @@ export function CommunityHero({ tenant }: Props) {
   return (
     <section
       ref={root}
-      className="relative flex min-h-[calc(100svh-5.5rem)] flex-col justify-end overflow-hidden px-6 pb-16 pt-10 md:px-10 md:pb-20"
+      className="relative flex min-h-[calc(100svh-5.5rem)] flex-col justify-end px-6 pb-16 pt-10 md:px-10 md:pb-20"
     >
       <div
         aria-hidden
-        className="hero-glow pointer-events-none absolute inset-0 opacity-35"
-        style={{
-          background:
-            "radial-gradient(ellipse 70% 55% at 70% 40%, var(--t-accent) 0%, transparent 65%), radial-gradient(ellipse 50% 40% at 20% 80%, var(--t-gold) 0%, transparent 55%)",
-        }}
-      />
-      <div
-        aria-hidden
-        className="pointer-events-none absolute inset-0 opacity-[0.07]"
-        style={{
-          backgroundImage:
-            "url(\"data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='1'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E\")",
-        }}
-      />
+        className="pointer-events-none absolute inset-0 overflow-hidden"
+      >
+        <div
+          className="hero-glow absolute inset-0 opacity-35"
+          style={{
+            background:
+              "radial-gradient(ellipse 70% 55% at 70% 40%, var(--t-accent) 0%, transparent 65%), radial-gradient(ellipse 50% 40% at 20% 80%, var(--t-gold) 0%, transparent 55%)",
+          }}
+        />
+        <div
+          className="absolute inset-0 opacity-[0.07]"
+          style={{
+            backgroundImage:
+              "url(\"data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='1'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E\")",
+          }}
+        />
+      </div>
 
       <div className="relative z-10 max-w-4xl">
-        <p className="hero-brand font-[family-name:var(--font-display)] text-[clamp(2.75rem,8vw,5.5rem)] leading-[0.95] tracking-tight text-[var(--t-fg)]">
+        <p className="hero-brand font-[family-name:var(--font-display)] text-[clamp(2.75rem,8vw,5.5rem)] leading-[1.12] tracking-tight text-[var(--t-fg)]">
           {tenant.builderName}
         </p>
-        <p className="hero-line mt-3 font-[family-name:var(--font-display)] text-[clamp(1.5rem,4vw,2.25rem)] text-[var(--t-gold)]">
+        <p className="hero-line mt-5 font-[family-name:var(--font-display)] text-[clamp(1.5rem,4vw,2.25rem)] leading-snug text-[var(--t-gold)]">
           {tenant.communityName}
         </p>
-        <p className="hero-line mt-5 max-w-xl text-base text-[var(--t-muted)] md:text-lg">
+        <p className="hero-line mt-6 max-w-xl text-base leading-relaxed text-[var(--t-muted)] md:text-lg">
           {tenant.tagline} {tenant.location}.
         </p>
         <div className="hero-cta mt-10 flex flex-wrap gap-3">

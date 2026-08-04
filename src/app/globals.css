@@ -1,0 +1,24 @@
+@import "tailwindcss";
+
+:root {
+  --background: #0e1518;
+  --foreground: #f2efe8;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-body);
+  --font-display: var(--font-display);
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-body), system-ui, sans-serif;
+}
+
+::selection {
+  background: color-mix(in oklab, #4a737e 55%, transparent);
+  color: #f2efe8;
+}

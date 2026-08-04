@@ -1,4 +1,5 @@
 import type { TenantConfig } from "../types";
+import { cedarHedgeFloorPlans } from "./floorplans";
 
 /**
  * Smart Castle Homes · Cedar Hedge — first tenant.
@@ -224,6 +225,7 @@ export const cedarHedgeTenant: TenantConfig = {
       notes: "Optional community / site massing",
     },
   ],
+  floorPlans: cedarHedgeFloorPlans,
   documents: [
     {
       label: "Floor plans (website)",

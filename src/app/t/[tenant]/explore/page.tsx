@@ -27,12 +27,15 @@ export default async function ExplorePage({
   const viewRaw = typeof query.view === "string" ? query.view : "exterior";
   const view: AssetKind =
     viewRaw === "interior" || viewRaw === "site" ? viewRaw : "exterior";
+  const scene =
+    typeof query.scene === "string" ? query.scene : undefined;
 
   return (
     <ExploreStudio
       tenant={tenant}
       initialModelCode={model}
       initialView={view}
+      initialSceneId={scene}
     />
   );
 }

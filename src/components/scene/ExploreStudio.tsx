@@ -9,12 +9,15 @@ type Props = {
   tenant: TenantConfig;
   initialModelCode?: string;
   initialView?: AssetKind;
+  /** Future: room scene from 2D plan click */
+  initialSceneId?: string;
 };
 
 export function ExploreStudio({
   tenant,
   initialModelCode,
   initialView = "exterior",
+  initialSceneId,
 }: Props) {
   const elevations = useMemo(() => {
     const map = new Map<string, { elevation: string; code: string }>();
@@ -100,8 +103,25 @@ export function ExploreStudio({
       <ExploreCanvas
         tenant={tenant}
         asset={asset}
-        viewLabel={`${model?.name ?? "Model"} · ${view}`}
+        viewLabel={`${model?.name ?? "Model"} · ${view}${
+          initialSceneId ? ` · ${initialSceneId}` : ""
+        }`}
       />
+
+      {initialSceneId && (
+        <p className="px-6 pt-4 text-sm text-[var(--t-muted)] md:px-10">
+          Room scene requested:{" "}
+          <code className="text-[var(--t-gold)]">{initialSceneId}</code>
+          {" — "}
+          <Link
+            href={`/t/${tenant.slug}/plans`}
+            className="underline decoration-white/15 underline-offset-4"
+          >
+            back to 2D plans
+          </Link>
+          . Interior GLB for this room will load here when ready.
+        </p>
+      )}
 
       <ul className="grid gap-3 px-6 py-8 text-sm text-[var(--t-muted)] md:grid-cols-2 md:px-10">
         {tenant.assets

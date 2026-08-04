@@ -46,6 +46,12 @@ export function TenantShell({ tenant, children }: Props) {
             Models
           </Link>
           <Link
+            href={`${base}/plans`}
+            className="rounded-sm px-3 py-2 transition-colors hover:text-[var(--t-fg)]"
+          >
+            Plans
+          </Link>
+          <Link
             href={`${base}/explore`}
             className="rounded-sm px-3 py-2 transition-colors hover:text-[var(--t-fg)]"
           >

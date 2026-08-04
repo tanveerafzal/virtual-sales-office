@@ -43,6 +43,30 @@ export type Lot = {
   modelCode?: string;
 };
 
+/** Clickable room zone on a 2D floor plan (percent of image box). */
+export type FloorHotspot = {
+  id: string;
+  label: string;
+  /** Left / top / width / height as % of plan image (0–100) */
+  x: number;
+  y: number;
+  w: number;
+  h: number;
+  dims?: string;
+  /** Future: bind click → interior 3D scene / GLB slot */
+  sceneId?: string;
+  notes?: string;
+};
+
+export type FloorPlanLevel = {
+  id: string;
+  label: string;
+  /** Public path under /tenants/... */
+  imageSrc: string;
+  description?: string;
+  hotspots: FloorHotspot[];
+};
+
 export type TenantTheme = {
   background: string;
   foreground: string;
@@ -75,5 +99,7 @@ export type TenantConfig = {
   models: HomeModel[];
   lots: Lot[];
   assets: TenantAsset[];
+  /** Shared 2D interior plans (click rooms → future 3D hookup) */
+  floorPlans: FloorPlanLevel[];
   documents: { label: string; href: string }[];
 };

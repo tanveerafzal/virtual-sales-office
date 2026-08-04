@@ -85,8 +85,14 @@ export function CommunityHero({ tenant }: Props) {
         </p>
         <div className="hero-cta mt-10 flex flex-wrap gap-3">
           <Link
-            href={`${base}/explore`}
+            href={`${base}/plans`}
             className="bg-[var(--t-fg)] px-6 py-3 text-sm font-medium text-[var(--t-bg)] transition-opacity hover:opacity-90"
+          >
+            Interior plans
+          </Link>
+          <Link
+            href={`${base}/explore`}
+            className="border border-white/25 px-6 py-3 text-sm text-[var(--t-fg)] transition-colors hover:border-[var(--t-gold)] hover:text-[var(--t-gold)]"
           >
             Explore 3D
           </Link>

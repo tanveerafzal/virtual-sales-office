@@ -52,18 +52,19 @@ export function ModelGrid({ tenant }: Props) {
                   </li>
                 ))}
               </ul>
-              <div className="mt-5 flex flex-wrap items-center gap-3 text-sm">
+              <div className="mt-5 flex flex-wrap items-center gap-4 text-sm">
+                <Link
+                  href={`/t/${tenant.slug}/plans`}
+                  className="text-[var(--t-accent-soft)] underline decoration-white/15 underline-offset-4 hover:text-[var(--t-gold)]"
+                >
+                  Interior plans
+                </Link>
                 <Link
                   href={`/t/${tenant.slug}/explore?model=${rep.code}&view=exterior`}
                   className="text-[var(--t-accent-soft)] underline decoration-white/15 underline-offset-4 hover:text-[var(--t-gold)]"
                 >
                   {exterior?.ready ? "View exterior 3D" : "Exterior 3D slot"}
                 </Link>
-                {!exterior?.ready && (
-                  <span className="text-xs text-[var(--t-muted)]">
-                    Awaiting human GLB
-                  </span>
-                )}
               </div>
             </article>
           );

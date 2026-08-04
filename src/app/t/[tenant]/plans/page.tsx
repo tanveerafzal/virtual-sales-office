@@ -1,13 +1,13 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { FloorPlanViewer } from "@/components/plans/FloorPlanViewer";
-import { getTenant } from "@/tenants/registry";
+import { getProjectAsTenant } from "@/lib/data/get-project";
 
 export async function generateMetadata({
   params,
 }: PageProps<"/t/[tenant]/plans">): Promise<Metadata> {
   const { tenant: slug } = await params;
-  const tenant = getTenant(slug);
+  const tenant = await getProjectAsTenant(slug);
   if (!tenant) return {};
   return { title: `Interior plans · ${tenant.communityName}` };
 }
@@ -18,7 +18,7 @@ export default async function PlansPage({
 }: PageProps<"/t/[tenant]/plans">) {
   const { tenant: slug } = await params;
   const query = await searchParams;
-  const tenant = getTenant(slug);
+  const tenant = await getProjectAsTenant(slug);
   if (!tenant) notFound();
 
   const level =

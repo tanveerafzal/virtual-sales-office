@@ -10,8 +10,21 @@ Multi-tenant virtual sales office for homebuilders.
 - **Next.js** (App Router) + TypeScript
 - **Three.js** via React Three Fiber + Drei
 - **GSAP** for UI motion
-- Tenant config under `src/tenants/`
+- **Neon Postgres** + Drizzle ORM (partners → projects → models → plans / 3D)
+- Static fallback under `src/tenants/` when `DATABASE_URL` is unset
 - Tailwind CSS + per-tenant CSS variables
+
+## Database
+
+See [docs/DATA-MODEL.md](docs/DATA-MODEL.md).
+
+```bash
+# .env.local
+DATABASE_URL=postgresql://...
+
+npm run db:push
+npm run db:seed
+```
 
 ## Run
 

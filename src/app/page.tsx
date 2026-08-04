@@ -1,8 +1,8 @@
 import Link from "next/link";
-import { listTenants } from "@/tenants/registry";
+import { listProjectsAsTenants } from "@/lib/data/get-project";
 
-export default function Home() {
-  const tenants = listTenants();
+export default async function Home() {
+  const tenants = await listProjectsAsTenants();
 
   return (
     <main className="relative flex flex-1 flex-col bg-[#0e1518] text-[#f2efe8]">
@@ -22,9 +22,8 @@ export default function Home() {
           Configurable sales galleries for homebuilders
         </h1>
         <p className="mt-6 max-w-xl text-lg leading-relaxed text-[#9aadaf]">
-          Multi-tenant product shell. First community: Smart Castle Homes · Cedar
-          Hedge. 3D exteriors and interiors are delivered by your design team as
-          GLBs.
+          Partners publish projects with models, 2D plans, and 3D designs — data
+          from Neon when configured.
         </p>
 
         <ul className="mt-12 space-y-4">
@@ -34,7 +33,7 @@ export default function Home() {
                 href={`/t/${t.slug}`}
                 className="group flex flex-col border-t border-white/15 pt-4 transition-colors sm:flex-row sm:items-baseline sm:justify-between"
               >
-                <span className="font-[family-name:var(--font-display)] text-2xl group-hover:text-[#c5a46a]">
+                <span className="font-[family-name:var(--font-display)] text-2xl leading-snug group-hover:text-[#c5a46a]">
                   {t.builderName}
                 </span>
                 <span className="text-sm text-[#9aadaf]">

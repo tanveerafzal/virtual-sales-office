@@ -1,9 +1,13 @@
 import { notFound } from "next/navigation";
 import { TenantShell } from "@/components/tenant/TenantShell";
-import { getTenant, listTenants } from "@/tenants/registry";
+import {
+  getProjectAsTenant,
+  listProjectSlugs,
+} from "@/lib/data/get-project";
 
-export function generateStaticParams() {
-  return listTenants().map((t) => ({ tenant: t.slug }));
+export async function generateStaticParams() {
+  const slugs = await listProjectSlugs();
+  return slugs.map((tenant) => ({ tenant }));
 }
 
 export default async function TenantLayout({
@@ -11,7 +15,7 @@ export default async function TenantLayout({
   params,
 }: LayoutProps<"/t/[tenant]">) {
   const { tenant: slug } = await params;
-  const tenant = getTenant(slug);
+  const tenant = await getProjectAsTenant(slug);
   if (!tenant) notFound();
 
   return <TenantShell tenant={tenant}>{children}</TenantShell>;

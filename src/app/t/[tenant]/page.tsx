@@ -2,13 +2,13 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { CommunityHero } from "@/components/tenant/CommunityHero";
 import { ModelGrid } from "@/components/tenant/ModelGrid";
-import { getTenant } from "@/tenants/registry";
+import { getProjectAsTenant } from "@/lib/data/get-project";
 
 export async function generateMetadata({
   params,
 }: PageProps<"/t/[tenant]">): Promise<Metadata> {
   const { tenant: slug } = await params;
-  const tenant = getTenant(slug);
+  const tenant = await getProjectAsTenant(slug);
   if (!tenant) return {};
   return {
     title: `${tenant.builderName} · ${tenant.communityName}`,
@@ -20,7 +20,7 @@ export default async function TenantHomePage({
   params,
 }: PageProps<"/t/[tenant]">) {
   const { tenant: slug } = await params;
-  const tenant = getTenant(slug);
+  const tenant = await getProjectAsTenant(slug);
   if (!tenant) notFound();
 
   return (

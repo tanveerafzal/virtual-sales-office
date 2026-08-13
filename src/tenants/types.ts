@@ -43,11 +43,22 @@ export type Lot = {
   modelCode?: string;
 };
 
-/** Clickable room zone on a 2D floor plan (percent of image box). */
+/** Percent box within a parent (0–100). */
+export type PercentBox = {
+  x: number;
+  y: number;
+  w: number;
+  h: number;
+};
+
+/** Clickable room zone on a 2D floor plan. */
 export type FloorHotspot = {
   id: string;
   label: string;
-  /** Left / top / width / height as % of plan image (0–100) */
+  /**
+   * Left / top / width / height as % of `contentBox` when set,
+   * otherwise % of the full image.
+   */
   x: number;
   y: number;
   w: number;
@@ -64,6 +75,11 @@ export type FloorPlanLevel = {
   /** Public path under /tenants/... */
   imageSrc: string;
   description?: string;
+  /**
+   * Building/drawing bounds within the sheet image (% of full image).
+   * Hotspots are relative to this box so they stay on the plan.
+   */
+  contentBox?: PercentBox;
   hotspots: FloorHotspot[];
 };
 

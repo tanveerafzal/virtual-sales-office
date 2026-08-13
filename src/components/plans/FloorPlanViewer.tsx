@@ -4,6 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useMemo, useState } from "react";
 import gsap from "gsap";
+import { hotspotImageBox } from "@/lib/plans/hotspot-style";
 import type { FloorHotspot, FloorPlanLevel, TenantConfig } from "@/tenants/types";
 
 type Props = {
@@ -111,8 +112,9 @@ export function FloorPlanViewer({
               className="h-auto w-full select-none"
               priority
             />
-            <div className="absolute inset-0" aria-hidden={false}>
+            <div className="absolute inset-0 overflow-hidden">
               {level.hotspots.map((h) => {
+                const box = hotspotImageBox(level, h);
                 const active = selectedId === h.id || hoveredId === h.id;
                 return (
                   <button
@@ -128,10 +130,10 @@ export function FloorPlanViewer({
                     onClick={() => setSelectedId(h.id)}
                     className="absolute border transition-[background,border-color,box-shadow] duration-150 focus:outline-none focus-visible:ring-2 focus-visible:ring-[var(--t-gold)]"
                     style={{
-                      left: `${h.x}%`,
-                      top: `${h.y}%`,
-                      width: `${h.w}%`,
-                      height: `${h.h}%`,
+                      left: `${box.x}%`,
+                      top: `${box.y}%`,
+                      width: `${box.w}%`,
+                      height: `${box.h}%`,
                       background: active
                         ? "color-mix(in oklab, #4a737e 35%, transparent)"
                         : "transparent",

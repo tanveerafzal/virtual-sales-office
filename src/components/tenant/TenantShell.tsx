@@ -57,6 +57,12 @@ export function TenantShell({ tenant, children }: Props) {
           >
             Explore 3D
           </Link>
+          <Link
+            href={`${base}/payments`}
+            className="rounded-sm px-3 py-2 transition-colors hover:text-[var(--t-fg)]"
+          >
+            Payments
+          </Link>
           <a
             href={`mailto:${tenant.contact.email}?subject=${encodeURIComponent(
               `${tenant.communityName} inquiry`,

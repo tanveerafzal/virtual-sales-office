@@ -185,7 +185,7 @@ export const cedarHedgeTenant: TenantConfig = {
       src: "/tenants/cedar-hedge/assets/exteriors/dalhousie.glb",
       label: "Dalhousie exterior elevation",
       modelCode: "36E",
-      ready: false,
+      ready: true,
       format: "glb",
     },
     {
@@ -194,7 +194,7 @@ export const cedarHedgeTenant: TenantConfig = {
       src: "/tenants/cedar-hedge/assets/interiors/dalhousie.glb",
       label: "Dalhousie interior",
       modelCode: "36E",
-      ready: false,
+      ready: true,
       format: "glb",
     },
     {
